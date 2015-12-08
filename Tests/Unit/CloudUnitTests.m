@@ -50,6 +50,17 @@
 #pragma mark - Tests
 ///--------------------------------------
 
+- (void)testCallCustomFunctionOnWADapi {
+    
+    XCTestExpectation *expectation = [self currentSelectorTestExpectation];
+    [PFCloud callFunctionInBackground:@"getTrending" withParameters:nil block:^(id result, NSError *cloudError) {
+        
+        XCTAssertNotEqual(result, nil);
+        [expectation fulfill];
+    }];
+    [self waitForTestExpectations];
+}
+
 - (void)testCallFunction {
     [Parse _currentManager].coreManager.cloudCodeController = [self cloudCodeControllerWithResult:@{ @"a" : @"b" }
                                                                                             error:nil];

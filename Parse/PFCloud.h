@@ -21,6 +21,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PFCloud : NSObject
 
 /**
+ Determine if the call should be done on Parse or on api WineAdvisor
+ 
+ @param function The function name to call.
+ 
+ @no return
+ */
++ (void)useWADapiOrNot:(NSString *)function;
+
+/**
  Calls the given cloud function *synchronously* with the parameters provided.
 
  @param function The function name to call.
