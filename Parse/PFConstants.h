@@ -16,7 +16,7 @@
 /// @name Version
 ///--------------------------------------
 
-#define PARSE_VERSION @"1.10.0"
+#define PARSE_VERSION @"1.11.0"
 
 extern NSInteger const PARSE_API_VERSION;
 
@@ -28,12 +28,6 @@ extern NSInteger const PARSE_API_VERSION;
 #define PARSE_OSX_ONLY (TARGET_OS_MAC && !(TARGET_OS_IPHONE))
 
 extern NSString *const __nonnull kPFDeviceType;
-
-#if PARSE_IOS_ONLY
-#import <UIKit/UIKit.h>
-#else
-#import <Cocoa/Cocoa.h>
-#endif
 
 ///--------------------------------------
 /// @name Server
