@@ -53,7 +53,20 @@
 - (void)testCallCustomFunctionOnWADapi {
     
     XCTestExpectation *expectation = [self currentSelectorTestExpectation];
-    [PFCloud callFunctionInBackground:@"getTrending" withParameters:@{ @"a" : @"b" } block:^(id result, NSError *cloudError) {
+    [PFCloud callFunctionInBackground:@"getTrending" withParameters:@{
+                                                                      @"user": @{
+                                                                              @"className": @"_User",
+                                                                              @"objectId": @"SnyniTCNsC",
+                                                                              @"__type": @"Pointer"
+                                                                              },
+                                                                      @"page": @0,
+                                                                      @"limit": @10,
+                                                                      @"owner": @{
+                                                                              @"className": @"_User",
+                                                                              @"objectId": @"SnyniTCNsC",
+                                                                              @"__type": @"Pointer"
+                                                                              }
+                                                                      } block:^(id result, NSError *cloudError) {
         NSLog(@"%@", result);
         XCTAssertNotEqual(result, nil);
         [expectation fulfill];

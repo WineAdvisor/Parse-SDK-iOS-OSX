@@ -24,15 +24,15 @@
 
 + (void)useWADapiOrNot:(NSString *)function{
     //Define functions which will be redirected to api2.wineadvisor.com
-    NSArray *webhookFunctions = [NSArray arrayWithObjects: @"getTrending", @"test", nil];
+    NSArray *webhookFunctions = [NSArray arrayWithObjects: @"getTrending", @"toto", nil];
     //Enable or disable redirection
     if ([webhookFunctions containsObject:function]) {
-        [PFInternalUtils setParseServer:@"https://api2.wineadvisor.com"];
+        [PFInternalUtils setParseServer:@"http://api2.wineadvisor.com"];
     } else {
         [PFInternalUtils setParseServer:kPFParseServer];
     }
     NSString *url = [PFInternalUtils parseServerURLString];
-    NSLog([NSString stringWithFormat:@"%@/1/%@", url, function]);
+    NSLog([NSString stringWithFormat:@"%@/1/functions/%@", url, function]);
 }
 
 + (id)callFunction:(NSString *)function withParameters:(NSDictionary *)parameters {
