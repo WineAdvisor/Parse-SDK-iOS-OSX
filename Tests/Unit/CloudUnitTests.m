@@ -51,7 +51,7 @@
 ///--------------------------------------
 
 - (void)testCallCustomFunctionOnWADapi {
-    [Parse _currentManager].coreManager.cloudCodeController = [self cloudCodeControllerWithResult:@{ @"a" : @"b" }
+//    [Parse _currentManager].coreManager.cloudCodeController = [self cloudCodeControllerWithResult:@{ @"a" : @"b" }
                                                                                             error:nil];
     
     XCTestExpectation *expectation = [self currentSelectorTestExpectation];
