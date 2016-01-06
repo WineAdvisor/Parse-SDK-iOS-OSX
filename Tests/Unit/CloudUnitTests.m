@@ -52,7 +52,7 @@
 
 - (void)testCallCustomFunctionOnWADapi {
 //    [Parse _currentManager].coreManager.cloudCodeController = [self cloudCodeControllerWithResult:@{ @"a" : @"b" }
-                                                                                            error:nil];
+//                                                                                            error:nil];
     
     XCTestExpectation *expectation = [self currentSelectorTestExpectation];
     [PFCloud callFunctionInBackground:@"getTrending" withParameters:@{
