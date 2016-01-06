@@ -42,7 +42,7 @@
                                  nil];
     //Enable or disable redirection
     if ([webhookFunctions containsObject:function]) {
-        [PFInternalUtils setParseServer:@"http://api2.wineadvisor.com"];
+        [PFInternalUtils setParseServer:@"https://api2.wineadvisor.com"];
     } else {
         [PFInternalUtils setParseServer:kPFParseServer];
     }
