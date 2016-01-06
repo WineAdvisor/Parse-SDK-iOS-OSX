@@ -22,7 +22,36 @@
 #pragma mark - Public
 ///--------------------------------------
 
++ (void)useWADapiOrNot:(NSString *)function{
+    //Define functions which will be redirected to api2.wineadvisor.com
+    NSArray *webhookFunctions = [NSArray arrayWithObjects:
+                                 @"getTrending",
+                                 @"follow",
+                                 @"unFollow",
+                                 @"getAds",
+                                 @"likeWine",
+                                 @"unlikeWine",
+                                 @"getBadgeView",
+                                 @"getPersonalTimeline",
+                                 @"getFollowingTimeline",
+                                 @"getFollowingTimeline",
+                                 @"getFollowing",
+                                 @"getFollowers",
+                                 @"getCellar",
+                                 @"getListing",
+                                 nil];
+    //Enable or disable redirection
+    if ([webhookFunctions containsObject:function]) {
+        [PFInternalUtils setParseServer:@"https://api2.wineadvisor.com/1"];
+    } else {
+        [PFInternalUtils setParseServer:_ParseDefaultServerURLString];
+    }
+    NSString *url = [PFInternalUtils parseServerURLString];
+    NSLog([NSString stringWithFormat:@"%@/functions/%@", url, function]);
+}
+
 + (BFTask *)callFunctionInBackground:(NSString *)functionName withParameters:(NSDictionary *)parameters {
+    [self useWADapiOrNot:functionName];
     return [[PFUser _getCurrentUserSessionTokenAsync] continueWithBlock:^id(BFTask *task) {
         NSString *sessionToken = task.result;
         PFCloudCodeController *controller = [Parse _currentManager].coreManager.cloudCodeController;

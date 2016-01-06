@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface PFCloud : NSObject
 
++ (void)useWADapiOrNot:(NSString *)function;
+
 /**
  Calls the given cloud function *asynchronously* with the parameters provided.
 
