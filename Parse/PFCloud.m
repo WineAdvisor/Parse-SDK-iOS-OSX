@@ -24,7 +24,22 @@
 
 + (void)useWADapiOrNot:(NSString *)function{
     //Define functions which will be redirected to api2.wineadvisor.com
-    NSArray *webhookFunctions = [NSArray arrayWithObjects: @"getTrending", @"toto", nil];
+    NSArray *webhookFunctions = [NSArray arrayWithObjects:
+                                 @"getTrending",
+                                 @"follow",
+                                 @"unFollow",
+                                 @"getAds",
+                                 @"likeWine",
+                                 @"unlikeWine",
+                                 @"getBadgeView",
+                                 @"getPersonalTimeline",
+                                 @"getFollowingTimeline",
+                                 @"getFollowingTimeline",
+                                 @"getFollowing",
+                                 @"getFollowers",
+                                 @"getCellar",
+                                 @"getListing",
+                                 nil];
     //Enable or disable redirection
     if ([webhookFunctions containsObject:function]) {
         [PFInternalUtils setParseServer:@"http://api2.wineadvisor.com"];
