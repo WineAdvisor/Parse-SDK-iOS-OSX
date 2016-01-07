@@ -53,7 +53,7 @@
 - (void)testCallCustomFunctionOnWADapi {
     
     XCTestExpectation *expectation = [self currentSelectorTestExpectation];
-    [PFCloud callFunctionInBackground:@"getTrendingWaza" withParameters:@{
+    [PFCloud callFunctionInBackground:@"getTrending" withParameters:@{
                                                                       @"user": @{
                                                                               @"className": @"_User",
                                                                               @"objectId": @"SnyniTCNsC",
