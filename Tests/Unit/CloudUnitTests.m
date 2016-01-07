@@ -50,6 +50,30 @@
 #pragma mark - Tests
 ///--------------------------------------
 
+- (void)testCallCustomFunctionOnWADapi {
+    
+    XCTestExpectation *expectation = [self currentSelectorTestExpectation];
+    [PFCloud callFunctionInBackground:@"getTrendingWaza" withParameters:@{
+                                                                      @"user": @{
+                                                                              @"className": @"_User",
+                                                                              @"objectId": @"SnyniTCNsC",
+                                                                              @"__type": @"Pointer"
+                                                                              },
+                                                                      @"page": @0,
+                                                                      @"limit": @10,
+                                                                      @"owner": @{
+                                                                              @"className": @"_User",
+                                                                              @"objectId": @"SnyniTCNsC",
+                                                                              @"__type": @"Pointer"
+                                                                              }
+                                                                      } block:^(id result, NSError *cloudError) {
+                                                                          NSLog(@"%@", result);
+                                                                          XCTAssertNotEqual(result, nil);
+                                                                          [expectation fulfill];
+                                                                      }];
+    [self waitForTestExpectations];
+}
+
 - (void)testCallFunction {
     [Parse _currentManager].coreManager.cloudCodeController = [self cloudCodeControllerWithResult:@{ @"a" : @"b" }
                                                                                             error:nil];

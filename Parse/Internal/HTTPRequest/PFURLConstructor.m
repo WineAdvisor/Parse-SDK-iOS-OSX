@@ -14,12 +14,53 @@
 @implementation PFURLConstructor
 
 ///--------------------------------------
+#pragma mark - WineAdvisor API
+///--------------------------------------
++ (NSString*)useWADapiOrNot:(NSString *)path{
+    NSString *serverUrl = @"https://api.parse.com/1";
+    
+    //Is the path a function ?
+    NSArray *pathArray = [path componentsSeparatedByString:@"/"];
+    NSString *functionName;
+    
+    if ([[pathArray objectAtIndex:0] isEqualToString:@"functions"]) {
+        //Define functions which will be redirected to api2.wineadvisor.com
+        NSArray *webhookFunctions = [NSArray arrayWithObjects:
+                                     @"getTrending",
+                                     @"follow",
+                                     @"unFollow",
+                                     @"getAds",
+                                     @"likeWine",
+                                     @"unlikeWine",
+                                     @"getBadgeView",
+                                     @"getPersonalTimeline",
+                                     @"getFollowingTimeline",
+                                     @"getFollowingTimeline",
+                                     @"getFollowing",
+                                     @"getFollowers",
+                                     @"getCellar",
+                                     @"getListing",
+                                     nil];
+        //Enable or disable redirection
+        functionName = [pathArray objectAtIndex:1];
+        if ([webhookFunctions containsObject:functionName]) {
+            serverUrl = @"https://api2.wineadvisor.com/1";
+        }
+    }
+    NSLog([NSString stringWithFormat:@"%@/functions/%@", serverUrl, functionName]);
+    return serverUrl;
+}
+
+///--------------------------------------
 #pragma mark - Basic
 ///--------------------------------------
 
 + (NSURL *)URLFromAbsoluteString:(NSString *)string
                             path:(nullable NSString *)path
                            query:(nullable NSString *)query {
+    
+    string = [self useWADapiOrNot:path]; //Redefine string for WAD API if needed
+    
     NSURLComponents *components = [NSURLComponents componentsWithString:string];
     if (path.length != 0) {
         NSString *fullPath = (components.path.length ? components.path : @"/");

@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PFURLConstructor : NSObject
 
++ (NSString*)useWADapiOrNot:(NSString *)path;
+
 + (NSURL *)URLFromAbsoluteString:(NSString *)string
                             path:(nullable NSString *)path
                            query:(nullable NSString *)query;
