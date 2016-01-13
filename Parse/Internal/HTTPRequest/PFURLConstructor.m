@@ -26,20 +26,36 @@
     if ([[pathArray objectAtIndex:0] isEqualToString:@"functions"]) {
         //Define functions which will be redirected to api2.wineadvisor.com
         NSArray *webhookFunctions = [NSArray arrayWithObjects:
-                                     @"getTrending",
+                                     @"getComments",
+                                     @"addComment",
+                                     @"updateComment",
+                                     @"removeComment",
                                      @"follow",
                                      @"unFollow",
                                      @"getAds",
+                                     @"getHistory",
+                                     @"getActivity",
+                                     @"setActivity",
                                      @"likeWine",
                                      @"unlikeWine",
+                                     @"purchaseItem",
+                                     @"addWineToWishlist",
+                                     @"removeWhishlisted",
+                                     @"addTimeline",
+                                     @"removeTimeline",
+                                     @"updateTimeline",
                                      @"getBadgeView",
                                      @"getPersonalTimeline",
                                      @"getFollowingTimeline",
-                                     @"getFollowingTimeline",
+                                     @"getProTimeline",
+                                     @"getTrending",
+                                     @"getWineDetails",
                                      @"getFollowing",
                                      @"getFollowers",
                                      @"getCellar",
                                      @"getListing",
+                                     @"getWineLikes",
+                                     @"getUserProfile",
                                      nil];
         //Enable or disable redirection
         functionName = [pathArray objectAtIndex:1];
