@@ -50,12 +50,15 @@
                                      @"getProTimeline",
                                      @"getTrending",
                                      @"getWineDetails",
+                                     @"getWishlist",
+                                     @"getUserName",
+                                     @"getUserProfile",
                                      @"getFollowing",
                                      @"getFollowers",
                                      @"getCellar",
                                      @"getListing",
+                                     @"getToDiscoverWines",
                                      @"getWineLikes",
-                                     @"getUserProfile",
                                      nil];
         //Enable or disable redirection
         functionName = [pathArray objectAtIndex:1];
