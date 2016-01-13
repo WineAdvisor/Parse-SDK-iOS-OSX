@@ -53,10 +53,16 @@ static ParseClientConfiguration *currentParseConfiguration_;
 #pragma mark - Connect
 ///--------------------------------------
 
-+ (void)setApplicationId:(NSString *)applicationId clientKey:(NSString *)clientKey {
++ (void)setApplicationId:(NSString )applicationId clientKey:(NSString )clientKey WADServer:(NSString *)WADServerURLString
+{
     currentParseConfiguration_.applicationId = applicationId;
     currentParseConfiguration_.clientKey = clientKey;
-    currentParseConfiguration_.server = [PFInternalUtils parseServerURLString]; // TODO: (nlutsenko) Clean this up after tests are updated.
+    if ([WADServerURLString isKindOfClass:nil]) {
+        currentParseConfiguration_.server = [PFInternalUtils parseServerURLString]; // TODO: (nlutsenko) Clean this up after tests are updated.
+    } else {
+        currentParseConfiguration_.server = WADServerURLString;
+    }
+    
 
     [self initializeWithConfiguration:currentParseConfiguration_];
 
