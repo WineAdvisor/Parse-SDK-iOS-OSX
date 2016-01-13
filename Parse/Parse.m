@@ -57,7 +57,7 @@ static ParseClientConfiguration *currentParseConfiguration_;
 {
     currentParseConfiguration_.applicationId = applicationId;
     currentParseConfiguration_.clientKey = clientKey;
-    if ([WADServerURLString isKindOfClass:nil]) {
+    if( WADServerURLString == nil ) {
         currentParseConfiguration_.server = [PFInternalUtils parseServerURLString]; // TODO: (nlutsenko) Clean this up after tests are updated.
     } else {
         currentParseConfiguration_.server = WADServerURLString;
