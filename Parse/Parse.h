@@ -81,7 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param applicationId The application id of your Parse application.
  @param clientKey The client key of your Parse application.
  */
-+ (void)setApplicationId:(NSString )applicationId clientKey:(NSString )clientKey WADServer:(NSString *)WADServerURLString;
++ (void)setApplicationId:(NSString *)applicationId clientKey:(NSString *)clientKey WADServer:(NSString *)WADServerURLString;
 
 /**
  Sets the configuration to be used for the Parse SDK.

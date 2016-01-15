@@ -53,7 +53,7 @@ static ParseClientConfiguration *currentParseConfiguration_;
 #pragma mark - Connect
 ///--------------------------------------
 
-+ (void)setApplicationId:(NSString )applicationId clientKey:(NSString )clientKey WADServer:(NSString *)WADServerURLString
++ (void)setApplicationId:(NSString *)applicationId clientKey:(NSString *)clientKey WADServer:(NSString *)WADServerURLString
 {
     currentParseConfiguration_.applicationId = applicationId;
     currentParseConfiguration_.clientKey = clientKey;
